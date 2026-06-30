@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>六十四卦查詢系統</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <h1>六十四卦查詢系統</h1>
+        <p class="subtitle">本卦、錯卦、綜卦、互卦、三極卦與動爻查詢</p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel control-panel">
+        <h2>查詢條件</h2>
+
+        <div class="form-group">
+          <label for="hexagramId">卦序</label>
+          <input id="hexagramId" type="number" min="1" max="64" value="1" />
+        </div>
+
+        <div class="form-group">
+          <label>動爻</label>
+          <div class="checkbox-group" id="movingLinesGroup">
+            <label><input type="checkbox" value="1" /> 初爻</label>
+            <label><input type="checkbox" value="2" /> 二爻</label>
+            <label><input type="checkbox" value="3" /> 三爻</label>
+            <label><input type="checkbox" value="4" /> 四爻</label>
+            <label><input type="checkbox" value="5" /> 五爻</label>
+            <label><input type="checkbox" value="6" /> 上爻</label>
+          </div>
+        </div>
+
+        <button id="analyzeBtn" class="btn-primary">開始分析</button>
+
+        <div class="api-note">
+          <p><strong>API</strong></p>
+          <p>POST /analyze</p>
+          <code>{ "hexagramId": 1, "changingLines": [1,4] }</code>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div id="status" class="status">請輸入條件後開始分析。</div>
+
+        <section class="panel">
+          <h2>本卦</h2>
+          <div id="baseHexagram" class="hexagram-card empty-card">尚未載入資料</div>
+        </section>
+
+        <section class="grid-two">
+          <section class="panel">
+            <h2>錯卦</h2>
+            <div id="oppositeHexagram" class="hexagram-card empty-card">尚未載入資料</div>
+          </section>
+
+          <section class="panel">
+            <h2>綜卦</h2>
+            <div id="inverseHexagram" class="hexagram-card empty-card">尚未載入資料</div>
+          </section>
+        </section>
+
+        <section class="panel">
+          <h2>互卦</h2>
+          <div id="mutualHexagram" class="hexagram-card empty-card">尚未載入資料</div>
+        </section>
+
+        <section class="panel">
+          <h2>三極卦</h2>
+          <div class="grid-three">
+            <div>
+              <h3>A（123-234）</h3>
+              <div id="sanjiA" class="hexagram-card empty-card">尚未載入資料</div>
+            </div>
+            <div>
+              <h3>B（234-345）</h3>
+              <div id="sanjiB" class="hexagram-card empty-card">尚未載入資料</div>
+            </div>
+            <div>
+              <h3>C（345-456）</h3>
+              <div id="sanjiC" class="hexagram-card empty-card">尚未載入資料</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>動爻說明</h2>
+          <div id="movingLinesText" class="text-block empty-card">尚未載入資料</div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-const API_BASE = "http://5.78.134.137:3000";
+const API_BASE = "https://api.allenyeh.com";
 
 const statusEl = document.getElementById("status");
 const analyzeBtn = document.getElementById("analyzeBtn");

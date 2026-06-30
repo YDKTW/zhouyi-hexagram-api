@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:3000";
+const API_BASE = "http://5.78.134.137:3000";
 
 const statusEl = document.getElementById("status");
 const analyzeBtn = document.getElementById("analyzeBtn");

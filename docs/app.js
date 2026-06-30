@@ -330,8 +330,7 @@ async function analyzeHexagram() {
   try {
     const payload = {
       hexagramId,
-      changingLines,
-      moves
+      movingLines: moves
     };
 
     const response = await fetch(`${API_BASE}/analyze`, {
